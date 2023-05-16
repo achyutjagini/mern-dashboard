@@ -1,7 +1,6 @@
 The code snippet you provided is a sample App component in a 
 React application. Let's break it down:
 
-
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -15,10 +14,15 @@ In this section, various modules and components are imported. Here's a brief
 explanation of each import statement:
 
 logo is imported from "./logo.svg". It's likely an image file used as a logo in the application.
+
 "./App.css" imports the CSS file specific to the App component.
+
 useSelector is imported from "react-redux". It's a hook used to access the Redux store's state.
+
 themeSettings is imported from "theme". It is likely a module or file that exports the theme settings.
+
 useMemo is imported from "react". It is a hook used to memoize values and optimize performance.
+
 createTheme is imported from "@mui/material". It's a function provided by the
  Material-UI library to create custom themes.
 BrowserRouter, Routes, and Route are imported from "react-router-dom". They are
