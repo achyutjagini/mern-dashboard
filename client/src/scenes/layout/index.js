@@ -1,5 +1,8 @@
 import React from 'react'
-const { Box } = require("@mui/material")
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import { Box, useMediaQuery } from "@mui/material"
+import { useSelector } from 'react-redux'
 
 const Layout = () => {
     return (
