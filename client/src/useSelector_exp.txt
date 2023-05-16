@@ -1,0 +1,46 @@
+The useSelector hook is a function provided by the React Redux library, 
+which is a popular library used for managing state in React
+applications using the Redux architecture.
+
+
+In Redux, the state of an application is stored in a central store,
+and components can access and update that state using actions 
+and reducers.
+
+//useSelector used to extract data
+
+The useSelector hook allows you to
+extract data from the Redux store in a React component.
+
+
+Here's how you typically use the useSelector hook:
+Import the useSelector function from the React Redux library.
+
+import { useSelector } from 'react-redux';
+In your functional component, use the useSelector hook to access the data from the Redux store.
+
+
+const MyComponent = () => {
+  const data = useSelector(state => state.myReducer.data); //state.nameofslice.property (property in the initialState)
+  
+  // ... rest of the component logic
+};
+
+//state.nameofslice.property (property in the initialState)
+
+
+In the example above, state represents the
+entire Redux store, and state.myReducer.data
+accesses the data property stored in the
+myReducer reducer. The useSelector hook 
+subscribes to changes in the specified 
+data and automatically re-renders the
+component when that data changes.
+
+
+By using the useSelector hook, you can select
+and extract only the necessary data from the
+Redux store, making your components more focused
+and efficient. It also ensures that the 
+components only re-render when the 
+relevant data changes, optimizing performance.

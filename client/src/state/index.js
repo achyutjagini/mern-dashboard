@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/*the global state is a js object */
 const initialState = {
   mode: "dark",
 };
