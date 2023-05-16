@@ -1,13 +1,13 @@
-import "./App.css";
-
 import { useSelector } from "react-redux";
 import { themeSettings } from "theme";
 
 import { useMemo } from "react";
 import { createTheme } from "@mui/material";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { CssBaseline, ThemeProvider } from "@mui/material"
+import Layout from "scenes/layout";
+import Dashboard from "scenes/dashboard";
+import { Navigate } from "react-router-dom";
 
 
 function App() {
