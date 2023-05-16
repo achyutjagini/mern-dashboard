@@ -22,11 +22,17 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
+            {/* layout has navbar and sidebar which will exist on every page */}
             <Route element={<Layout />}></Route>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+
+
+
           </Routes>
         </ThemeProvider>
-      </BrowserRouter>
-    </div>
+      </BrowserRouter >
+    </div >
   );
 }
 
