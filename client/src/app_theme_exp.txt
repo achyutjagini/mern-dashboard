@@ -1,0 +1,10 @@
+
+The import statement import { CssBaseline, ThemeProvider } from "@mui/material" is used to import specific modules from the Material-UI library (often referred to as MUI).
+
+Here's a brief explanation of the use of each imported module:
+
+CssBaseline: CssBaseline is a component provided by Material-UI that helps normalize CSS across different browsers. It applies basic styles to the HTML document, such as resetting default margins and paddings, fixing font sizes, and ensuring consistent box sizing. By including CssBaseline in your application, you can start with a consistent baseline style across different browsers.
+
+ThemeProvider: ThemeProvider is a component from Material-UI that allows you to define a theme and apply it to your application. It provides a way to customize the visual appearance of your components using a theme object. The theme object can define various properties like colors, typography, spacing, and more. By wrapping your application or a portion of it with ThemeProvider, you can make the defined theme available to all the components within that scope.
+
+Overall, these imports from @mui/material are commonly used in Material-UI projects to establish a consistent styling baseline with CssBaseline and apply custom themes using ThemeProvider.

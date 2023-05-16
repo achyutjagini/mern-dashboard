@@ -24,9 +24,11 @@ tokens for the specified mode, and the typography object contains
 the font family and size settings for the specified mode.
 
 
-The code you provided defines a themeSettings function that generates theme settings based on the provided mode (either "dark" or any other value representing the light mode).
+The code you provided defines a themeSettings function that generates theme 
+settings based on the provided mode (either "dark" or any other value representing the light mode).
 
-Inside the function, an object representing the theme settings is returned. It includes a palette property that contains color values based on the specified mode. The color values are obtained from the tokensDark and tokensLight objects.
+Inside the function, an object representing the theme settings is returned. 
+It includes a palette property that contains color values based on the specified mode. The color values are obtained from the tokensDark and tokensLight objects.
 
 If the mode parameter is "dark", the palette values for dark mode are assigned. This includes the primary, secondary, neutral, and background colors.
 

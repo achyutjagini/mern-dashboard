@@ -1,0 +1,69 @@
+
+
+The syntax ...(mode === "dark" is an example of the spread syntax (...) used
+ in JavaScript. Here's an explanation of this specific usage:
+
+The spread syntax ... is typically used to
+expand an iterable (like an array or an object) 
+into individual elements or properties. It allows
+you to use the elements or properties of an 
+iterable in places where multiple arguments 
+or elements are expected.
+
+In this case, the spread syntax is used in an object literal
+ to conditionally include properties based on the
+ value of the mode variable. Let's break it down:
+
+mode === "dark" is a comparison expression that checks
+ if the mode variable is equal to the string value "dark".
+If the comparison mode === "dark" evaluates to true, the object
+ properties inside the curly braces {} following the spread 
+ syntax will be included in the resulting object.
+
+If the comparison mode === "dark" evaluates to false, 
+an empty object {} will be included in the resulting object.
+Essentially, this syntax allows for conditional inclusion of 
+properties in the object based on the value of mode. If mode
+ is "dark", the properties defined inside the curly braces
+  will be added; otherwise, an empty object will be added.
+
+Here's an example to illustrate the usage of this syntax:
+
+
+const mode = "dark";
+
+const obj = {
+  prop1: "value1",
+
+  ...(mode === "dark"
+    ? {
+        prop2: "value2",
+      }
+    : {}),
+  prop3: "value3",
+};
+
+console.log(obj);
+In this example, if mode is "dark", the 
+resulting object will be { prop1: "value1", prop2: "value2", prop3: "value3" }. 
+If mode is any other value, the resulting object will be { prop1: "value1", prop3: "value3" }.
+
+
+       primary: {
+            ...tokensDark.primary,
+            main: tokensDark.primary[400],
+            light: tokensDark.primary[400],
+
+          }, what this means
+
+
+
+In the provided code snippet, primary is an object that contains several properties and values. Let's break down what each line means:
+
+...tokensDark.primary: The spread syntax ... is used to spread the properties and values from the tokensDark.primary object. It essentially copies all the properties and values from tokensDark.primary into the primary object being defined.
+
+main: tokensDark.primary[400]: The main property of the primary object is assigned the value at index 400 from the tokensDark.primary object. It's likely that tokensDark.primary is an array or an object that holds a series of color values, and [400] is used to access a specific color value at that index.
+
+light: tokensDark.primary[400]: The light property of the primary object is also assigned the value at index 400 from the tokensDark.primary object. It appears to be the same value as the main property, so it's possible there is a mistake or oversight in this code snippet.
+
+To summarize, the code snippet is creating a primary object with properties and values taken from the tokensDark.primary object. The main and light properties within primary are assigned a specific color value at index 400 from tokensDark.primary.
