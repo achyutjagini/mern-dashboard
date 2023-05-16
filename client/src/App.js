@@ -9,9 +9,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { CssBaseline, ThemeProvider } from "@mui/material"
 
 
-
 function App() {
   const mode = useSelector((state) => state.global.mode);
+
+  //memoized value recomputed when mode changes
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (
