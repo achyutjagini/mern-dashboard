@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   LightModeOutlined,
@@ -10,19 +10,24 @@ import {
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
 
-import { FlexBetween } from "./FlexBetween";
+import { FlexBetween } from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
 import { ProfileImage } from "assets/profile.jpeg";
 import { InputBase, useTheme } from "@mui/material";
 import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 
-const Navbar = ({ isSidebarOpen, setisSideBarOpen }) => {
+const Navbar = ({ isSideBarOpen, setisSideBarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
+  useEffect(() => {
+    console.log(`Navbar file${isSideBarOpen}`)
+  }, [isSideBarOpen]);
   return (
     <AppBar position="static" background="none" boxshadow="none">
+
+      {/*toolbar has the black color*/}
       <Toolbar sx={{ justifyContent: "space-between" }}>
 
         {/*left side */}
@@ -32,11 +37,9 @@ const Navbar = ({ isSidebarOpen, setisSideBarOpen }) => {
             aria-label=""
             onClick={() => {
               console.log("open/close sidebar")
-              setisSideBarOpen(!isSidebarOpen)
+              setisSideBarOpen(!isSideBarOpen)
             }}
-
           >
-
             <MenuIcon />
           </IconButton>
           {/* gap should be used on parent component*/}

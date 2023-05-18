@@ -116,7 +116,7 @@ export const themeSettings = (mode) => {
           },
           background: {
             default: tokensDark.grey[0],
-            alt: tokensDark.grey[50],
+            alt: tokensDark.grey[200],
           },
         }),
     },
