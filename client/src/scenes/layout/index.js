@@ -1,18 +1,37 @@
-import React from 'react'
-import { useState } from 'react'
-import { Outlet } from 'react-router-dom'
-import { Box, useMediaQuery } from "@mui/material"
-import { useSelector } from 'react-redux'
+import React from "react";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import { Box, useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
+import Navbar from "components/Navbar";
+import Sidebar from "components/Sidebar";
 
+/*Navbar exist on every page
+outlet is what is underneath */
 const Layout = () => {
-    return (
-        <div>
-            <p> Layout</p>
-            {/* <Box display="flex" width="80px" justify-content="center" height="80px" background="white" z-index="1">
-            </Box>*/}
+  /* mobile-false desktop-true*/
 
-        </div>
-    )
-}
+  const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [isSideBarOpen, setisSideBarOpen] = useState(true);
 
-export default Layout
+  return (
+    <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
+      <Sidebar
+        isNonMobile={isNonMobile}
+        drawerWidth="250px"
+        isSideBarOpen={isSideBarOpen}
+        setisSideBarOpen={setisSideBarOpen}
+      ></Sidebar>
+
+      <Box>
+        <Navbar
+          isSideBarOpen={isSideBarOpen}
+          setisSideBarOpen={setisSideBarOpen}
+        />
+        <Outlet />
+      </Box>
+    </Box>
+  );
+};
+
+export default Layout;
