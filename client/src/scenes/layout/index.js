@@ -14,16 +14,20 @@ const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [isSideBarOpen, setisSideBarOpen] = useState(true);
 
+  /* flex desktop screen */
   return (
     <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
+
       <Sidebar
         isNonMobile={isNonMobile}
         drawerWidth="250px"
         isSideBarOpen={isSideBarOpen}
         setisSideBarOpen={setisSideBarOpen}
-      ></Sidebar>
+      />
+
 
       <Box>
+        {/* to have functionality of opening and closing sidebar in menu icon*/}
         <Navbar
           isSideBarOpen={isSideBarOpen}
           setisSideBarOpen={setisSideBarOpen}
@@ -31,6 +35,7 @@ const Layout = () => {
         <Outlet />
       </Box>
     </Box>
+
   );
 };
 

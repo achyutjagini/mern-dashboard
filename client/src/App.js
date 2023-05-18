@@ -23,6 +23,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+
           <CssBaseline />
           <Routes>
             {/* layout has navbar and sidebar which will exist on every page */}

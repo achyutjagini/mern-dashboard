@@ -5,7 +5,7 @@ const initialState = {
   mode: "dark",
 };
 
-//functions that change the global state
+//think as functions that change the global state
 export const globalSlice = createSlice({
   name: "global",
   initialState,
