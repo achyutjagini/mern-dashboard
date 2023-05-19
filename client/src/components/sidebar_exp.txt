@@ -1,0 +1,98 @@
+The code provided is a React functional component that represents a sidebar. It 
+uses Material-UI components to create the sidebar layout. Let's go 
+through the code step by step:
+
+The code defines a functional component named Sidebar that returns a JSX
+(JavaScript XML) structure.
+
+The JSX structure is wrapped inside a <Box> component from Material-UI,
+which represents a container element.
+
+Inside the <Box> component, there is a conditional rendering using the logical AND (&&) operator. 
+It checks the value of the isSideBarOpen variable and only renders the <Drawer> component if it is true.
+
+The <Drawer> component represents the sidebar itself. It receives several props:
+open prop: It determines whether the drawer is open or not based on the value of isSideBarOpen.
+
+onClose prop: It specifies the function to be called when the user closes the drawer. In 
+this case, it calls the setisSideBarOpen(false) function.
+
+variant prop: It sets the variant of the drawer to "persistent", which
+means it remains open until explicitly closed.
+
+anchor prop: It specifies the position of the drawer, which
+is set to "left" in this case.
+
+sx prop: It allows customizing the styling of the drawer
+using the Material-UI's styling system.
+
+The code you provided is using the sx prop in a React component to define 
+the styles for a drawer component. Let's break down the styles being applied:
+
+width: drawerWidth: Sets the width of the drawer 
+component to a value specified by the drawerWidth variable.
+
+"& .MuiDrawer-paper": Targets the child element with 
+the class name .MuiDrawer-paper inside the drawer component.
+
+color: theme.palette.secondary[200]: Sets the text
+color of the .MuiDrawer-paper element to the value of the secondary[200] property in the theme's palette.
+
+backgroundColor: theme.palette.background.alt: Sets the background 
+color of the .MuiDrawer-paper element to the value of the background.alt property in the theme's palette.
+
+boxSizing: "border-box": Sets the box-sizing property of the .MuiDrawer-paper element 
+to "border-box", which includes borders and padding in the element's total width and height.
+
+borderWidth: isNonMobile ? 0 : "2px": Sets the border width of the .MuiDrawer-paper
+element to 0 if isNonMobile evaluates to true; otherwise, it sets it to "2px".
+
+width: drawerWidth: Sets the width of the .MuiDrawer-paper element 
+to the value of the drawerWidth variable.
+
+
+<Box sx={{ position: 'sticky', top: '0', backgroundColor: theme.palette.background.alt, zIndex: '999' }}>
+
+position: 'sticky': Sets the position of the element to "sticky". This means that the
+ element will be positioned relative to its nearest scrolling ancestor or the viewport if no scrolling ancestor is found.
+
+top: '0': Sets the distance between the top edge of the element and the top edge of
+its scrolling ancestor or the viewport to 0. This ensures that the element 
+will stick to the top of its container or the viewport.
+
+backgroundColor: theme.palette.background.alt: Sets the background color of the element to the value
+of the background.alt property in the theme's palette.
+
+zIndex: '999': Sets the stack order of the element. It sets the z-index CSS
+property to 999, which means the element will appear above elements with lower z-index values.
+
+Overall, this code is styling a <Box> component to create a sticky element
+ that sticks to the top of its container or the viewport. It has a custom background 
+color and a high z-index value to ensure it appears above other elements on the page
+
+
+Inside the <Drawer> component, there is a <Box> component
+that represents the sticky header of the sidebar.
+
+The sticky header contains a <Box> component for the 
+title of the sidebar and an <IconButton> component for 
+the close button (displayed only on non-mobile devices).
+
+The title is wrapped inside a <Typography> component 
+with the variant set to "h4" and a fontWeight of "bold".
+
+The close button is represented by an <IconButton> component,
+ which triggers the setisSideBarOpen(!isSideBarOpen) function
+  when clicked. It toggles the value of isSideBarOpen.
+
+The closing tag of the <FlexBetween> component seems to be missing, assuming 
+it's a custom component that provides a flex container with content
+ distributed evenly between the items.
+
+After the header, there is a <Divider> component to separate the 
+header from the content of the sidebar.
+
+The component ends with the closing tags for the <Box>, <Drawer>, and <Box> components.
+Overall, this code creates a responsive sidebar with a sticky 
+header, a title, and a close button. The sidebar itself is 
+only rendered if the isSideBarOpen variable is true

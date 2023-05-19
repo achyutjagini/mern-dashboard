@@ -1,0 +1,46 @@
+The useMemo hook is a built-in hook provided by React that allows you to 
+memoize the result of a computation and cache it for future use. It 
+is used to optimize performance by avoiding unnecessary re-computations.
+
+The basic syntax of the useMemo hook is as follows:
+
+
+const memoizedValue = useMemo(() => {
+  // compute and return the value
+}, [dependencyList]);
+
+The useMemo hook takes two arguments: a function that 
+computes the value and a dependency list.
+
+The first argument is a function that performs the
+computation you want to memoize. The value returned
+by this function will be stored and cached.
+
+The second argument is an array of dependencies. It specifies
+ the values that the memoized value depends on. Whenever any of 
+ the values in the dependency list changes, the memoized value 
+ will be recomputed. If the dependency list remains unchanged, 
+the cached value will be returned without re-computing.
+
+Here's an example to illustrate the usage of useMemo:
+
+const MyComponent = ({ list }) => {
+  const memoizedResult = useMemo(() => {
+    // Expensive computation based on 'list'
+    // Return the computed value
+  }, [list]);
+
+  // Rest of the component logic using memoizedResult
+};
+
+In the example above, the memoizedResult variable will be
+updated only when the list dependency changes. If list remains
+the same between renders, the cached value will be returned, 
+avoiding the expensive computation.
+
+The useMemo hook is particularly useful when you have 
+computationally expensive operations, such as complex 
+calculations or data transformations, that don't need 
+to be re-executed on every render. It allows you to optimize
+ the performance of your components by selectively memoizing
+ and caching the results of these computations.

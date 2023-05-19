@@ -1,0 +1,11 @@
+
+#grey
+#666666 -inbetween black and white
+
+//tailwind shades
+cntrl+k,cntrl+g
+
+3 colours using
+
+#21295c-slightly bluish
+#ffd166 -yellow
