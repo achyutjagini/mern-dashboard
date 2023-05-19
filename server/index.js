@@ -38,8 +38,7 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
-    app.listen(PORT, () => console.log(`Server started om ${PORT}`))
-
+    app.listen(PORT, () => console.log(`Server started on ${PORT}`))
 
 }).catch((error) =>
     console.log(error)

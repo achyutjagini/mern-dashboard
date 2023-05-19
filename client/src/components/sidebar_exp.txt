@@ -70,6 +70,7 @@ Overall, this code is styling a <Box> component to create a sticky element
  that sticks to the top of its container or the viewport. It has a custom background 
 color and a high z-index value to ensure it appears above other elements on the page
 
+
 Inside the <Drawer> component, there is a <Box> component
 that represents the sticky header of the sidebar.
 

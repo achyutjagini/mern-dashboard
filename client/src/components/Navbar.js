@@ -21,9 +21,7 @@ const Navbar = ({ isSideBarOpen, setisSideBarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
 
-  useEffect(() => {
-    console.log(`Navbar file${isSideBarOpen}`)
-  }, [isSideBarOpen]);
+
   return (
     <AppBar position="static" background="none" boxshadow="none">
 

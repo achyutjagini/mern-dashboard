@@ -1,5 +1,30 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+//redux toolkit query
+
+export const api = createApi({
+    baseQuery: fetchBaseQuery({
+        baseUrl:/* process.env.REACT_APP_BASE_URL*/"http://localhost:5001"
+    }),
+    reducerPath: "adminApi",
+    tagTypes: [
+        "User"
+    ],
+    // get call with build.query
+    endpoints: (build) => ({
+
+        getUser: build.query({
+            query: (id) => `general/user/${id}`,
+            providesTags: ["User"],
+        }),
+    })
+})
+
+export const {
+    useGetUserQuery,
+} = api;
+
+/*
 export const api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
     reducerPath: "adminApi",
@@ -15,7 +40,7 @@ export const api = createApi({
         "Dashboard",
     ],
     endpoints: (build) => ({
-
+        
         getUser: build.query({
             query: (id) => `general/user/${id}`,
             providesTags: ["User"],
@@ -70,3 +95,4 @@ export const {
     useGetUserPerformanceQuery,
     useGetDashboardQuery,
 } = api;
+*/

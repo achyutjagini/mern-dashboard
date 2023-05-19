@@ -7,7 +7,9 @@ the code step by step:
 The function begins with return {, indicating that an
 object will be returned.
 
-Inside the returned object, there is a palette property. The value of palette is another object that contains color values for different modes (light and dark).
+Inside the returned object, there is a palette property. 
+The value of palette is another object that contains
+color values for different modes (light and dark).
 
 Within the palette object, the mode property is assigned the value of the mode variable. This allows you to access the current mode value later.
 
@@ -29,9 +31,14 @@ The secondary and neutral properties spread and assign color values from their r
 The background property defines color values for default and alternate background colors using values from tokensDark.grey.
 After the palette property, there is a typography property within the returned object. This property defines typography-related styles such as font family and font size for different headings (h1 to h6).
 
+
 The fontFamily property sets the font family for the entire typography.
 The fontSize property sets the default font size.
 Each heading (h1 to h6) has its own properties defining the font family and font size.
 Finally, the function ends with };, closing the object and the function definition.
 
-Overall, this code dynamically generates a configuration object based on the value of the mode variable, providing different color palettes and typography styles for light and dark modes.
+
+Overall, this code dynamically generates a configuration 
+object based on the value of the mode variable, providing different color palettes and typography styles for light and dark modes.
+
+

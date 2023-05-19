@@ -25,15 +25,28 @@ the font family and size settings for the specified mode.
 
 
 The code you provided defines a themeSettings function that generates theme 
-settings based on the provided mode (either "dark" or any other value representing the light mode).
+settings based on the provided mode (either "dark" or any other 
+value representing the light mode).
 
 Inside the function, an object representing the theme settings is returned. 
-It includes a palette property that contains color values based on the specified mode. The color values are obtained from the tokensDark and tokensLight objects.
+It includes a palette property that contains color values based on the specified mode.
+ The color values are obtained from the tokensDark and tokensLight objects.
 
-If the mode parameter is "dark", the palette values for dark mode are assigned. This includes the primary, secondary, neutral, and background colors.
+If the mode parameter is "dark", the palette values for dark mode 
+are assigned. This includes the primary, secondary, neutral, 
+and background colors.
 
-If the mode parameter is not "dark" (indicating light mode), the palette values for light mode are assigned. This also includes the primary, secondary, neutral, and background colors.
+If the mode parameter is not "dark" (indicating light mode), the
+ palette values for light mode are assigned. This also
+  includes the primary, secondary, neutral, and background colors.
 
-The typography property specifies font-related settings such as fontFamily and fontSize for different heading levels (h1, h2, h3, etc.).
+The typography property specifies font-related settings
+such as fontFamily and fontSize for different
+heading levels (h1, h2, h3, etc.).
 
-Overall, this code defines a function that generates theme settings based on the provided mode, with color palettes and typography configurations.
+Overall, this code defines a function that generates
+theme settings based on the provided mode, with color 
+palettes and typography configurations.
+
+
+

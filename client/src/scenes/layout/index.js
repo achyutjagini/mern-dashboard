@@ -5,6 +5,7 @@ import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
+import { useGetUserQuery } from "state/api";
 
 /*
 
@@ -28,13 +29,21 @@ const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [isSideBarOpen, setisSideBarOpen] = useState(true);
 
+  //get the userId stored in the state/index.js
+  const userId = useSelector((state) => state.global.userId)
+
+  //console.log('userid', userId)
+
+  const { data } =
+    useGetUserQuery(userId)
+
+
+  console.log("data", data)
+
   useEffect(() => {
     console.log(`Desktop screen ${isNonMobile}`)
   }, [isNonMobile])
 
-  useEffect(() => {
-    console.log(`Layout file${isSideBarOpen}`)
-  }, [isSideBarOpen]);
 
   /* flex desktop screen */
   return (
