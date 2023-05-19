@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 /*the global state is a js object */
 const initialState = {
   mode: "dark",
+  userId: "63701cc1f03239b7f700000e",
 };
 
 //think as functions that change the global state
