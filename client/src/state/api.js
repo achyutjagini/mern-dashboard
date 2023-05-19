@@ -15,6 +15,7 @@ export const api = createApi({
         "Dashboard",
     ],
     endpoints: (build) => ({
+
         getUser: build.query({
             query: (id) => `general/user/${id}`,
             providesTags: ["User"],
