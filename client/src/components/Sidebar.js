@@ -227,7 +227,7 @@ const Sidebar = ({
             {/*list completed*/}
             <Divider />
           </Box>
-          {/*
+
           <Box position="absolute" bottom="2rem">
             <Divider />
             <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
@@ -261,8 +261,9 @@ const Sidebar = ({
                   fontSize: "25px ",
                 }}
               />
-            </FlexBetween>    </Box>
-              */}
+            </FlexBetween>
+          </Box>
+
 
 
         </Drawer>
