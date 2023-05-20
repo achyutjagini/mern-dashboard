@@ -15,11 +15,16 @@ import { useDispatch } from "react-redux";
 import { setMode } from "state";
 import { ProfileImage } from "assets/profile.jpeg";
 import { InputBase, useTheme } from "@mui/material";
-import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+import { AppBar, Toolbar, Typography, IconButton, Button } from "@mui/material";
 
-const Navbar = ({ isSideBarOpen, setisSideBarOpen }) => {
+const Navbar = ({ user, isSideBarOpen, setisSideBarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+
+  const [anchorEl, setAnchorEl] = useState(null)
+  const isOpen = Boolean(anchorEl)
+  const handleClick = (event) => setAnchorEl(event.currentTarget)
+  const handleClose = () => setAnchorEl(null)
 
 
   return (
@@ -74,9 +79,18 @@ const Navbar = ({ isSideBarOpen, setisSideBarOpen }) => {
           <IconButton>
             <SettingsOutlined></SettingsOutlined>
           </IconButton>
+
+          <FlexBetween>
+            <Button onClick={handleClick} sx={{
+              display: "flex", justifyContent: "space-between",
+              alignItems: "center", textTransform: "none", gap: "1rem"
+            }}>
+            </Button>
+
+          </FlexBetween>
         </FlexBetween>
-      </Toolbar>
-    </AppBar>
+      </Toolbar >
+    </AppBar >
   );
 };
 export default Navbar;

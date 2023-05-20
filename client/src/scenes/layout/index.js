@@ -34,8 +34,7 @@ const Layout = () => {
 
   //console.log('userid', userId)
 
-  const { data } =
-    useGetUserQuery(userId)
+  const { data } = useGetUserQuery(userId)
 
 
   console.log("data", data)
@@ -49,13 +48,14 @@ const Layout = () => {
   return (
     <Box display={isNonMobile ? "flex" : "block"} maxWidth="100%" height="100%">
       <Sidebar
+        user={data || {}}
         isNonMobile={isNonMobile}
         drawerWidth="250px"
         isSideBarOpen={isSideBarOpen}
         setisSideBarOpen={setisSideBarOpen}
       />
       {/*because of the flexGrow the navbar became full screen* else it was half screen*/}
-      <Box flexGrow={1}>
+      <Box >
         {/* to have functionality of opening and closing sidebar in menu icon*/}
         <Navbar
           isSideBarOpen={isSideBarOpen}
