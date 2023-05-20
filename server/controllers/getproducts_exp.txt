@@ -33,8 +33,8 @@ The spread operator (...) is used in { ...product._doc, stat } to create a new o
  adds the stat property to it. This way, each transformed product object will have the
  original product properties along with the associated statistics.
 
-javascript
-Copy code
+
+
         res.status(200).json(productsWithStats);
     } catch (error) {
         res.status(404).json({ message: error.message });

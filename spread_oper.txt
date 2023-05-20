@@ -24,8 +24,9 @@ const mergedArray = [...array1, ...array2]; // merges the arrays into a single a
 
 
 Merging Objects: The spread operator can merge multiple objects
- into a single object.It spreads the properties of each object into
-  the resulting object.If there are duplicate properties, the rightmost object's value overrides the previous ones. For example
+into a single object.It spreads the properties of each object into
+the resulting object.If there are duplicate properties, the rightmost
+ object's value overrides the previous ones. For example
 
 
 const object1 = { name: 'John', age: 30 };
@@ -33,20 +34,21 @@ const object2 = { address: '123 Main St', age: 31 };
 const mergedObject = { ...object1, ...object2 }; // merges the objects into a single object
 
 
-Passing Arguments to Functions: The spread operator can be used to pass an array's elements as individual arguments to a function. For example:
-javascript
-Copy code
+Passing Arguments to Functions: The spread operator can be used to pass an array's elements as individual 
+arguments to a function. For example:
+
 const numbers = [1, 2, 3];
 const sum = (a, b, c) => a + b + c;
 const result = sum(...numbers); // equivalent to sum(1, 2, 3)
+
 Destructuring Arrays and Objects: The spread operator can be used within destructuring 
 assignments to capture remaining elements or properties.For example:
 
-javascript
-Copy code
+
 const [first, ...rest] = [1, 2, 3, 4, 5]; // first = 1, rest = [2, 3, 4, 5]
 
 const { name, ...details } = { name: 'John', age: 30, address: '123 Main St' };
 // name = 'John', details = { age: 30, address: '123 Main St' }
 These are some of the common use cases of the spread operator in JavaScript.It provides 
-a concise and powerful way to work with arrays, objects, and function arguments by expanding or spreading their elements or properties.
+a concise and powerful way to work with arrays, objects, and function arguments by 
+expanding or spreading their elements or properties.
