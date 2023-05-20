@@ -26,9 +26,6 @@ const Navbar = ({ user, isSideBarOpen, setisSideBarOpen }) => {
   const handleClick = (event) => setAnchorEl(event.currentTarget)
   const handleClose = () => setAnchorEl(null)
 
-
-
-
   return (
     <AppBar position="static" background="none" boxshadow="none">
 

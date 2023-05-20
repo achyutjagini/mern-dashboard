@@ -263,7 +263,6 @@ const Sidebar = ({
                   {user.occupation}
                 </Typography>
 
-
               </Box>
 
               <SettingsOutlined
