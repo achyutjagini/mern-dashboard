@@ -182,6 +182,7 @@ const Sidebar = ({
                 return (
 
                   < ListItem key={text} disablePadding >
+
                     <ListItemButton
                       onClick={() => {
                         navigate(`/${lcText}`);
@@ -228,9 +229,14 @@ const Sidebar = ({
             <Divider />
           </Box>
 
+          {/*This will position the content of the Box component 2 rem from the bottom of its containing element.*/}
+
+
+
           <Box position="absolute" bottom="2rem">
             <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem" borderRadius="9px">
+
               <Box
                 component="img"
                 alt="profile"
@@ -240,6 +246,7 @@ const Sidebar = ({
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />
+
               <Box textAlign="left">
                 <Typography
                   fontWeight="bold"
@@ -248,13 +255,17 @@ const Sidebar = ({
                 >
                   {user.name}
                 </Typography>
+
                 <Typography
                   fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
                   {user.occupation}
                 </Typography>
+
+
               </Box>
+
               <SettingsOutlined
                 sx={{
                   color: theme.palette.secondary[300],

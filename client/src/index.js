@@ -14,6 +14,7 @@ import { api } from "state/api"
 const store = configureStore({
   reducer: {
     global: globalReducer,
+    //redux toolkit query
     [api.reducerPath]: api.reducer,
 
   },

@@ -30,8 +30,7 @@ const Layout = () => {
   const [isSideBarOpen, setisSideBarOpen] = useState(true);
 
   //get the userId stored in the state/index.js
-  const userId = useSelector((state) => state.global.userId)
-
+  const userId = useSelector((state) => state.global.userId) //selects the id variable of user(a huge number)
   //console.log('userid', userId)
 
   const { data } = useGetUserQuery(userId)
