@@ -42,7 +42,11 @@ const Layout = () => {
     console.log(`Desktop screen ${isNonMobile}`)
   }, [isNonMobile])
 
-
+  /*
+  The usage of display: block in this case means that the Box component will be rendered as a block
+  -level element. This means it will take up the entire available width of its parent container and 
+  stack vertically, taking up a new line for each element.
+  */
   /* flex desktop screen */
   return (
     <Box display={isNonMobile ? "flex" : "block"} maxWidth="100%" height="100%">
@@ -53,10 +57,13 @@ const Layout = () => {
         isSideBarOpen={isSideBarOpen}
         setisSideBarOpen={setisSideBarOpen}
       />
-      {/*because of the flexGrow the navbar became full screen* else it was half screen*/}
-      <Box >
+      {/*because of the flexGrow the navbar became full screen* else it was half screen
+       flexgrow so it takes all remaining space
+      */}
+      <Box flexGrow={1}>
         {/* to have functionality of opening and closing sidebar in menu icon*/}
         <Navbar
+          user={data || {}}
           isSideBarOpen={isSideBarOpen}
           setisSideBarOpen={setisSideBarOpen}
           sx={{ position: 'sticky', top: '0' }}
