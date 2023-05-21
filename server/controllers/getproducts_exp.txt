@@ -2,10 +2,12 @@
 export const getProducts = async (req, res) => {
 try {
     const products = await Product.find();
+    
+
 This code defines an asynchronous function named getProducts that takes two parameters:
- req (request) and res (response). It is likely a part of a web server framework or API 
- endpoint. The function attempts to retrieve products using Product.find(), 
- an asynchronous operation that returns a list of products.
+req (request) and res (response). It is likely a part of a web server framework or API 
+endpoint. The function attempts to retrieve products using Product.find(), 
+an asynchronous operation that returns a list of products.
 
 
 
