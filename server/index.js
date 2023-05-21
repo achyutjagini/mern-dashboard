@@ -43,7 +43,7 @@ mongoose.connect(process.env.MONGO_URL, {
 }).then(() => {
     app.listen(PORT, () => console.log(`Server started on ${PORT}`))
     //Product.insertMany(dataProduct)
-    //Product.insertMany(dataProductStat)
+    // ProductStat.insertMany(dataProductStat)
 
 }).catch((error) =>
     console.log(error)

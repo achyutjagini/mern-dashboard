@@ -59,3 +59,40 @@ Mongoose will create a collection with a name based on the
 pluralized model name. In your case, it created a collection
 named "products" because you used the Product model 
 without explicitly specifying a custom collection name.
+
+
+const products = await Product.find() why Product.find()
+
+
+In the provided code snippet, Product.find() is a Mongoose method used to
+ retrieve data from the MongoDB database. It performs a query to find all 
+ documents in the "products" collection and returns a promise that 
+ resolves to an array of matching documents.
+
+
+The find() method in Mongoose allows you to retrieve documents from a collection 
+based on specified criteria. In this case, since no criteria are provided inside 
+the parentheses, Product.find() will return all documents present in
+ the "products" collection.
+
+Here's an example of how you can use Product.find() to retrieve all documents from the "products" collection:
+
+
+
+const products = await Product.find();
+After executing this code, the products variable will hold an
+array containing all the documents retrieved from the "products" collection.
+
+You can also specify criteria inside the find() method to filter the results
+ based on specific conditions. For example, if you want to find products
+  with a certain price range, you can provide a query object as an argument to find():
+
+
+
+const products = await Product.find({ price: { $gte: 10, $lte: 50 } });
+This query will retrieve all products with a price greater than 
+or equal to 10 and less than or equal to 50.
+
+By using the find() method, you can retrieve documents from the
+ database that match specific criteria or retrieve all documents
+ if no criteria are provided.

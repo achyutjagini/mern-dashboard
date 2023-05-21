@@ -1,4 +1,3 @@
-
 export const getProducts = async (req, res) => {
 try {
     const products = await Product.find();
@@ -6,12 +5,13 @@ try {
 
 This code defines an asynchronous function named getProducts that takes two parameters:
 req (request) and res (response). It is likely a part of a web server framework or API 
-endpoint. The function attempts to retrieve products using Product.find(), 
+endpoint. '
+The function attempts to retrieve products using Product.find(), 
 an asynchronous operation that returns a list of products.
 
 
-
         const productsWithStats = await Promise.all(
+
             products.map(async (product) => {
                 const stat = await ProductStat.find({
                     productId: product._id,
@@ -22,9 +22,10 @@ an asynchronous operation that returns a list of products.
                 };
             })
         );
-Here, Promise.all() is used to wait for multiple promises to resolve. The map() function is
- called on the products array, creating a new array where each product is 
- transformed with additional statistics.
+Here, Promise.all() is used to wait for multiple promises to resolve.
+The map() function is
+called on the products array, creating a new array where each product is 
+transformed with additional statistics.
 
 For each product, it calls ProductStat.find() to find the corresponding statistics for
  that product. The productId field of ProductStat is matched with the _id field of the 
@@ -49,7 +50,8 @@ Finally, if the code executes without any errors, it sends a JSON response with
 
 Now, let's explain the spread operator (...):
 
-The spread operator is a feature introduced in ECMAScript 2015 (ES6) that allows an iterable (like an array or object) to be expanded into individual elements or properties. In the code snippet above, the spread operator is used within an object literal ({ ...product._doc, stat }) to create a new object by spreading the properties of product._doc.
+The spread operator is a feature introduced in ECMAScript 2015 (ES6) that allows an iterable (like an array or object) to be expanded into individual elements or properties. In the code snippet above,
+ the spread operator is used within an object literal ({ ...product._doc, stat }) to create a new object by spreading the properties of product._doc.
 
 For example, if product._doc is { name: 'Product 1', price: 10 }, using the spread operator like { ...product._doc, stat } would create a new object with the same properties (name and price) as product._doc. So the resulting object would be { name: 'Product 1', price: 10, stat: ... }. It effectively merges the properties of product._doc with the additional stat property.
 

@@ -10,6 +10,7 @@ import Dashboard from "./scenes/dashboard/index";
 import { Navigate } from "react-router-dom";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
+import Products from "scenes/layout/Products";
 
 //useSelector to get the state value
 //if want to call function to change state then useDispatch
@@ -30,6 +31,7 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/products" element={<Products />} />
             </Route>
           </Routes>
         </ThemeProvider>
