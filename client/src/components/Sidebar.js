@@ -138,11 +138,10 @@ const Sidebar = ({
               width: drawerWidth,
             },
 
-          }}
-        >
+          }}>
 
           {/*top part container before the line underneath change backgroundColor and see*/}
-          <Box sx={{ position: 'sticky', top: '0', backgroundColor: 'theme.palette.background.alt', zIndex: '999', backgroundColor: "red" }}>
+          <Box sx={{ position: 'sticky', top: '0', backgroundColor: 'theme.palette.background.alt', zIndex: '999' }}>
 
             {/*the whole horizontal part remove the justify,m prop and see*/}
 
@@ -230,7 +229,7 @@ const Sidebar = ({
           </Box>
 
           {/*This will position the content of the Box component 2 rem from the bottom of its containing element.*/}
-
+          {/*comment upper /box and below box  see what happens to understand*/}
 
 
           <Box position="absolute" bottom="2rem">

@@ -24,6 +24,7 @@ const Product = ({
     supply,
     stat,
 }) => {
+
     const theme = useTheme();
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -33,8 +34,8 @@ const Product = ({
                 backgroundImage: "none",
                 backgroundColor: theme.palette.background.alt,
                 borderRadius: "0.55rem",
-            }}
-        >
+            }}>
+
             <CardContent>
                 <Typography
                     sx={{ fontSize: 14 }}
