@@ -15,8 +15,10 @@ const store = configureStore({
   reducer: {
     global: globalReducer,
     //redux toolkit query
-    [api.reducerPath]: api.reducer,
+    // [api.reducerPath]: api.reducer,
 
+    //has to be reducerPath
+    [api.reducerPath]: api.reducer,
   },
   middleware: (getDefault) => getDefault().concat(api.middleware),
 });
