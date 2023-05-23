@@ -11,6 +11,7 @@ import { Navigate } from "react-router-dom";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import Products from "scenes/layout/Products";
+import Customers from "scenes/customers";
 
 //useSelector to get the state value
 //if want to call function to change state then useDispatch
