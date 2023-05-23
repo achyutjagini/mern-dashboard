@@ -81,10 +81,10 @@ const Product = ({
                     <Typography>id: {_id}</Typography>
                     <Typography>Supply Left: {supply}</Typography>
                     <Typography>
-                        Yearly Sales This Year: {stat.yearlySalesTotal}
+                        Yearly Sales This Year: {stat[0].yearlySalesTotal}
                     </Typography>
                     <Typography>
-                        Yearly Units Sold This Year: {stat.yearlyTotalSoldUnits}
+                        Yearly Units Sold This Year: {stat[0].yearlyTotalSoldUnits}
                     </Typography>
                 </CardContent>
             </Collapse>
@@ -95,11 +95,13 @@ const Product = ({
 const Products = () => {
     const { data, isLoading } = useGetProductsQuery();
     const isNonMobile = useMediaQuery("(min-width: 1000px)");
+    console.log(data)
 
     return (
-        <Box m="1.5rem 2.5rem">
+        <Box m="1.5rem 2.5rem">{/* 1.5 -top down 2.5-right,left*/}
             <Header title="PRODUCTS" subtitle="See your list of products." />
             {data || !isLoading ? (
+
                 <Box
                     mt="20px"
                     display="grid"
@@ -109,8 +111,8 @@ const Products = () => {
                     columnGap="1.33%"
                     sx={{
                         "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
-                    }}
-                >
+                    }}>
+
                     {data.map(
                         ({
                             _id,
@@ -134,11 +136,14 @@ const Products = () => {
                                 stat={stat}
                             />
                         )
-                    )}
+                    )
+                    }
                 </Box>
-            ) : (
-                <>Loading...</>
-            )}
+            ) :
+
+                (
+                    <>Loading...</>
+                )}
         </Box>
     );
 };

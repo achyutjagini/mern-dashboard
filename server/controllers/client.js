@@ -19,7 +19,7 @@ export const getProducts = async (req, res) => {
                 return {
                     //all the product properties of the specific document
                     ...product._doc,
-                    stat,
+                    ...stat,
                 };
             })
         );
