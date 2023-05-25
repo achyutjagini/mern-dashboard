@@ -7,6 +7,7 @@ object in the array represents a column and specifies properties such as field
  for column sizing). Additionally, the last column, "Phone Number," has a 
  renderCell function defined to format the displayed phone number.
 
+
 Inside the component's JSX, there is a container Box component that wraps the 
 entire content. It includes a Header component to display a title and subtitle.
 
@@ -18,8 +19,10 @@ receives several props, including:
 
 loading: It is set to isLoading || !data to indicate whether the data 
 is still loading or not available.
+
 getRowId: It is a function that determines the unique identifier for each row 
 in the grid. In this case, it uses the _id field of each customer object.
+
 rows: It expects an array of customer data, which is provided by the data variable.
 columns: It receives the columns array defined earlier.
 
@@ -29,3 +32,5 @@ The JSX structure and styling provided in the code snippet customize the appeara
 Overall, this component displays a table of customers using the Material-UI 
 DataGrid component, with styling and customization applied through the
  provided JSX and CSS-in-JS styles.
+
+ 
