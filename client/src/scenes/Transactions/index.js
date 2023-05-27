@@ -20,7 +20,7 @@ const Transactions = () => {
 
     //const sortParsed = JSON.parse(sort);
 
-    //any time parameters change automatically make another api request
+    //any time parameters change it automatically makes another api request
     const { data, isLoading } = useGetTransactionsQuery({
         page,
         pageSize,
