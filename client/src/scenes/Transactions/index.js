@@ -20,6 +20,7 @@ const Transactions = () => {
 
     //const sortParsed = JSON.parse(sort);
 
+    //any time parameters change automatically make another api request
     const { data, isLoading } = useGetTransactionsQuery({
         page,
         pageSize,
@@ -107,9 +108,11 @@ const Transactions = () => {
 
                     paginationMode="server"
                     sortingMode="server"
+
                     onPageChange={(newPage) => setPage(newPage)}
                     onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
                     onSortModelChange={(newSortModel) => setSort(...newSortModel)}
+
                     components={{ Toolbar: DataGridCustomToolbar }}
                     componentsProps={{
                         toolbar: { searchInput, setSearchInput, setSearch },

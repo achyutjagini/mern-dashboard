@@ -81,12 +81,14 @@ export const getTransactions = async (req, res) => {
                 { cost: { $regex: new RegExp(search, "i") } },
                 { userId: { $regex: new RegExp(search, "i") } },
             ],
-        })
-            .sort(sortFormatted)
+        }).sort(sortFormatted)
             .skip(page * pageSize)
             .limit(pageSize);
 
+
         //total number of transactions
+
+        //search should already be a regular expression object like /abcd/
         const total = await Transaction.countDocuments({
             name: { $regex: search, $options: "i" },
         });
