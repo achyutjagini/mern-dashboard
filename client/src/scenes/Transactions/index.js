@@ -12,15 +12,22 @@ const Transactions = () => {
     const [page, setPage] = useState(0);
     const [pageSize, setPageSize] = useState(20);
     const [sort, setSort] = useState({});
+
+    //sort initialized as {}
     const [search, setSearch] = useState("");
 
     const [searchInput, setSearchInput] = useState("");
+
+    //const sortParsed = JSON.parse(sort);
+
     const { data, isLoading } = useGetTransactionsQuery({
         page,
         pageSize,
         sort: JSON.stringify(sort),
         search,
     });
+
+
     console.log("transactions")
     console.log(data)
 
@@ -93,8 +100,11 @@ const Transactions = () => {
                     rowCount={(data && data.total) || 0}
                     rowsPerPageOptions={[20, 50, 100]}
                     pagination
+
                     page={page}
                     pageSize={pageSize}
+
+
                     paginationMode="server"
                     sortingMode="server"
                     onPageChange={(newPage) => setPage(newPage)}

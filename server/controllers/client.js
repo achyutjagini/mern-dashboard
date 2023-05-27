@@ -49,22 +49,35 @@ export const getCustomers = async (req, res) => {
 export const getTransactions = async (req, res) => {
     try {
         // sort should look like this: { "field": "userId", "sort": "desc"}
+        //frontend will send that as a string
+        //need to parse that into a JS object
+
         const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
 
-        // formatted sort should look like { userId: -1 }
+
+        // formatted sort should look like { userId: -1 } -what mongodb can read
+
+
+        //if sort=asc sortParsed.field=1 else -1
         const generateSort = () => {
             const sortParsed = JSON.parse(sort);
+
             const sortFormatted = {
+
                 [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
             };
 
             return sortFormatted;
         };
 
+        //if sort exists we do the generateSort
         const sortFormatted = Boolean(sort) ? generateSort() : {};
 
+
         const transactions = await Transaction.find({
+
             $or: [
+                //search the cost field with the user inputted search from frontend
                 { cost: { $regex: new RegExp(search, "i") } },
                 { userId: { $regex: new RegExp(search, "i") } },
             ],
@@ -73,6 +86,7 @@ export const getTransactions = async (req, res) => {
             .skip(page * pageSize)
             .limit(pageSize);
 
+        //total number of transactions
         const total = await Transaction.countDocuments({
             name: { $regex: search, $options: "i" },
         });
