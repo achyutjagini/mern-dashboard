@@ -30,7 +30,7 @@ const Transactions = () => {
   });
 
   console.log("transactions");
-  // console.log(data);
+  console.log(data);
 
   const columns = [
     {
