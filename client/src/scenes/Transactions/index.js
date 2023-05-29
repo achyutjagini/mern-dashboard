@@ -30,7 +30,7 @@ const Transactions = () => {
   });
 
   console.log("transactions");
-  console.log(data);
+  // console.log(data);
 
   const columns = [
     {
@@ -99,7 +99,13 @@ const Transactions = () => {
           getRowId={(row) => row._id}
           rows={(data && data.transactions) || []}
           columns={columns}
-          rowCount={(data && data.total) || 0}
+          rowCount={
+            search === "" && data && data.total
+              ? pageSize
+              : search !== "" && data && data.total
+              ? data && data.total
+              : 0
+          }
           rowsPerPageOptions={[20, 50, 100]}
           pagination
           page={page}

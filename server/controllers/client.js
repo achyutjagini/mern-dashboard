@@ -78,7 +78,14 @@ export const getTransactions = async (req, res) => {
     //search should already be a regular expression object like /abcd/
 
     /*  userId: { $regex: new RegExp(search, "i") },*/
-    const total = await Transaction.countDocuments({});
+    /*const total = await Transaction.countDocuments({
+
+    });
+*/
+
+    const total = await Transaction.countDocuments({
+      userId: { $regex: new RegExp(search, "i") },
+    });
 
     res.status(200).json({
       transactions,

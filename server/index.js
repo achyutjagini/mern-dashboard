@@ -51,7 +51,7 @@ mongoose
     app.listen(PORT, () => console.log(`Server started on ${PORT}`));
     //Product.insertMany(dataProduct);
     //ProductStat.insertMany(dataProductStat);
-    // Transaction.insertMany(dataTransaction);
+    //Transaction.insertMany(dataTransaction);
     //User.insertMany(dataUser);
   })
   .catch((error) => console.log(error));
