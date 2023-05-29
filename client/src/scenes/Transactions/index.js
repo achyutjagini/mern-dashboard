@@ -11,10 +11,10 @@ const Transactions = () => {
   // values to be sent to the backend
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(20);
-  const [sort, setSort] = useState({
-    /* field: "userId",
-    sort: "as",*/
-  });
+  /* const [sort, setSort] = useState({
+    /*  field: "userId",
+    sort: "as",
+  });*/
 
   //sort initialized as {}
   const [search, setSearch] = useState("");
@@ -27,7 +27,6 @@ const Transactions = () => {
   const { data, isLoading } = useGetTransactionsQuery({
     page,
     pageSize,
-    sort: JSON.stringify(sort),
     search,
   });
 
@@ -96,6 +95,7 @@ const Transactions = () => {
         }}
       >
         <DataGrid
+          sx={{ maxWidth: "170vh" }}
           loading={isLoading || !data}
           getRowId={(row) => row._id}
           rows={(data && data.transactions) || []}
@@ -109,7 +109,7 @@ const Transactions = () => {
           sortingMode="server"
           onPageChange={(newPage) => setPage(newPage)}
           onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          onSortModelChange={(newSortModel) => setSort(...newSortModel)}
+          // onSortModelChange={(newSortModel) => setSort(...newSortModel)}
           components={{ Toolbar: DataGridCustomToolbar }}
           componentsProps={{
             toolbar: { searchInput, setSearchInput, setSearch },

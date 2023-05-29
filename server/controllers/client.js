@@ -49,7 +49,7 @@ export const getTransactions = async (req, res) => {
 
     // formatted sort should look like { userId: -1 } -what mongodb can read
     //if sort=asc sortParsed.field=1 else -1
-    const generateSort = () => {
+    /*  const generateSort = () => {
       const sortParsed = JSON.parse(sort);
 
       const sortFormatted = {
@@ -60,7 +60,7 @@ export const getTransactions = async (req, res) => {
     };
 
     //if sort exists we do the generateSort
-    const sortFormatted = Boolean(sort) ? generateSort() : {};
+    const sortFormatted = Boolean(sort) ? generateSort() : {};*/
 
     const transactions = await Transaction.find({
       $or: [
@@ -69,7 +69,6 @@ export const getTransactions = async (req, res) => {
         { userId: { $regex: new RegExp(search, "i") } },
       ],
     })
-      .sort(sortFormatted)
       .skip(page * pageSize)
       .limit(pageSize);
 
