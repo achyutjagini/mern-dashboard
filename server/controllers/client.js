@@ -4,103 +4,87 @@ import User from "../models/User.js";
 import Transaction from "../models/Transaction.js";
 
 export const getProducts = async (req, res) => {
-    try {
-        const products = await Product.find()
-        //productsWithStats-array of objects
+  try {
+    const products = await Product.find();
+    //productsWithStats-array of objects
 
-        const productsWithStats = await Promise.all(
+    const productsWithStats = await Promise.all(
+      //map over all products
+      products.map(async (product) => {
+        //stats of the product being mapped over
+        const stat = await ProductStat.find({
+          productId: product._id,
+        });
 
-            //map over all products
-            products.map(async (product) => {
+        return {
+          //all the product properties of the specific document
+          ...product._doc,
+          stat,
+        };
+      })
+    );
 
-                //stats of the product being mapped over
-                const stat = await ProductStat.find({
-                    productId: product._id,
-                });
-
-                return {
-                    //all the product properties of the specific document
-                    ...product._doc,
-                    stat,
-                };
-            })
-        );
-
-        res.status(200).json(productsWithStats);
-
-    }
-
-    catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+    res.status(200).json(productsWithStats);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
 
 export const getCustomers = async (req, res) => {
-    try {
-        const customers = await User.find({ role: "user" }).select("-password");
-        res.status(200).json(customers);
-
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+  try {
+    const customers = await User.find({ role: "user" }).select("-password");
+    res.status(200).json(customers);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
-
 
 export const getTransactions = async (req, res) => {
-    try {
-        // sort should look like this: { "field": "userId", "sort": "desc"}
-        //frontend will send that as a string
-        //need to parse that into a JS object
+  try {
+    // sort should look like this: { "field": "userId", "sort": "desc"}
+    //frontend will send that as a string
+    //need to parse that into a JS object
 
-        const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
+    const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
 
+    // formatted sort should look like { userId: -1 } -what mongodb can read
+    //if sort=asc sortParsed.field=1 else -1
+    const generateSort = () => {
+      const sortParsed = JSON.parse(sort);
 
-        // formatted sort should look like { userId: -1 } -what mongodb can read
+      const sortFormatted = {
+        [sortParsed.field]: sortParsed.sort === "asc" ? 1 : -1,
+      };
 
+      return sortFormatted;
+    };
 
-        //if sort=asc sortParsed.field=1 else -1
-        const generateSort = () => {
-            const sortParsed = JSON.parse(sort);
+    //if sort exists we do the generateSort
+    const sortFormatted = Boolean(sort) ? generateSort() : {};
 
-            const sortFormatted = {
+    const transactions = await Transaction.find({
+      $or: [
+        //search the cost field with the user inputted search from frontend
+        { cost: { $regex: new RegExp(search, "i") } },
+        { userId: { $regex: new RegExp(search, "i") } },
+      ],
+    })
+      .sort(sortFormatted)
+      .skip(page * pageSize)
+      .limit(pageSize);
 
-                [sortParsed.field]: (sortParsed.sort = "asc" ? 1 : -1),
-            };
+    //total number of transactions
 
-            return sortFormatted;
-        };
+    //search should already be a regular expression object like /abcd/
+    const total = await Transaction.countDocuments({
+      name: { $regex: search, $options: "i" },
+    });
 
-        //if sort exists we do the generateSort
-        const sortFormatted = Boolean(sort) ? generateSort() : {};
-
-
-        const transactions = await Transaction.find({
-
-            $or: [
-                //search the cost field with the user inputted search from frontend
-                { cost: { $regex: new RegExp(search, "i") } },
-                { userId: { $regex: new RegExp(search, "i") } },
-            ],
-        }).sort(sortFormatted)
-            .skip(page * pageSize)
-            .limit(pageSize);
-
-
-        //total number of transactions
-
-        //search should already be a regular expression object like /abcd/
-        const total = await Transaction.countDocuments({
-            name: { $regex: search, $options: "i" },
-        });
-
-        res.status(200).json({
-            transactions,
-            total,
-        });
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
+    res.status(200).json({
+      transactions,
+      total,
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
-
-
-
