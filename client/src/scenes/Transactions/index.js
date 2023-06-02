@@ -13,7 +13,7 @@ const Transactions = () => {
   const [pageSize, setPageSize] = useState(20);
   const [sort, setSort] = useState({
     field: "userId",
-    sort: "as",
+    sort: "asc",
   });
 
   //sort initialized as {}
@@ -103,8 +103,8 @@ const Transactions = () => {
             search === "" && data && data.total
               ? pageSize
               : search !== "" && data && data.total
-              ? data && data.total
-              : 0
+                ? data && data.total
+                : 0
           }
           rowsPerPageOptions={[20, 50, 100]}
           pagination
