@@ -3,6 +3,8 @@ import ProductStat from "../models/ProductStat.js";
 import User from "../models/User.js";
 import Transaction from "../models/Transaction.js";
 
+import getCountryIso3 from "country-iso-2-to-3";
+
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
@@ -107,9 +109,14 @@ export const getGeography = async (req, res) => {
   try {
     const users = await User.find();
 
-    //{country starts from index 0}
+    //console.log(users)
+
+    //{country starts from index 0 }
+
+    //in reduce if we provide current value in {} it ony includes that specific key value
     const mappedLocations = users.reduce((acc, { country }) => {
 
+      //console.log(city) //-gives only countries
       const countryISO3 = getCountryIso3(country);
 
       if (!acc[countryISO3]) {
