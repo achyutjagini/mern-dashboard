@@ -100,18 +100,27 @@ export const getTransactions = async (req, res) => {
   }
 };
 
+//After processing all the users, the mappedLocations object contains the count 
+//of users for each country, mapped by their ISO3 code.
+
 export const getGeography = async (req, res) => {
   try {
     const users = await User.find();
 
+    //{country starts from index 0}
     const mappedLocations = users.reduce((acc, { country }) => {
+
       const countryISO3 = getCountryIso3(country);
+
       if (!acc[countryISO3]) {
         acc[countryISO3] = 0;
       }
+
       acc[countryISO3]++;
+
       return acc;
-    }, {});
+
+    }, {});//{} is initial value of accumulator
 
     const formattedLocations = Object.entries(mappedLocations).map(
       ([country, count]) => {
