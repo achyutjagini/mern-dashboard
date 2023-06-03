@@ -81,9 +81,9 @@ export const getTransactions = async (req, res) => {
 
     /*  userId: { $regex: new RegExp(search, "i") },*/
     /*const total = await Transaction.countDocuments({
-
+    
     });
-*/
+    */
 
     const total = await Transaction.countDocuments(
       {
@@ -122,6 +122,8 @@ export const getGeography = async (req, res) => {
 
     }, {});//{} is initial value of accumulator
 
+
+
     const formattedLocations = Object.entries(mappedLocations).map(
       ([country, count]) => {
         return { id: country, value: count };
@@ -129,6 +131,7 @@ export const getGeography = async (req, res) => {
     );
 
     res.status(200).json(formattedLocations);
+
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
