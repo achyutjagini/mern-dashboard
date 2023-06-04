@@ -6,16 +6,23 @@ import { useGetSalesQuery } from "state/api";
 const OverviewChart = ({ isDashboard = false, view }) => {
     const theme = useTheme();
     const { data, isLoading } = useGetSalesQuery();
+    console.log("data")
+    console.log(data)
 
     const [totalSalesLine, totalUnitsLine] = useMemo(() => {
-        if (!data) return [];
+        if (!data || !data.monthlyData) return [];
 
-        const { monthlyData } = data;
+        //destructuring
+        const { monthlyData } = data
+        console.log("monthlyData")
+        console.log(monthlyData)
+
         const totalSalesLine = {
             id: "totalSales",
             color: theme.palette.secondary.main,
             data: [],
         };
+
         const totalUnitsLine = {
             id: "totalUnits",
             color: theme.palette.secondary[600],

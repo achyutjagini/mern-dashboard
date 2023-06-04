@@ -105,6 +105,7 @@ export const getTransactions = async (req, res) => {
 //After processing all the users, the mappedLocations object contains the count 
 //of users for each country, mapped by their ISO3 code.
 
+
 export const getGeography = async (req, res) => {
   try {
     const users = await User.find();
