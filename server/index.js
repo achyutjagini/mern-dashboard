@@ -56,5 +56,6 @@ mongoose
     //ProductStat.insertMany(dataProductStat);
     //Transaction.insertMany(dataTransaction);
     //User.insertMany(dataUser);
+    //OverallStat.insertMany(dataOverallStat)
   })
   .catch((error) => console.log(error));
