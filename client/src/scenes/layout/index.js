@@ -30,15 +30,15 @@ const Layout = () => {
   const [isSideBarOpen, setisSideBarOpen] = useState(true);
 
   //get the userId stored in the state/index.js
-  const userId = useSelector((state) => state.global.userId)
+  const userId = useSelector((state) => state.global.userId);
 
   //console.log('userid', userId)
 
   const { data } =
-    useGetUserQuery(userId)
+    useGetUserQuery(userId);
 
 
-  console.log("data", data)
+  console.log("data", data);
 
   useEffect(() => {
     console.log(`Desktop screen ${isNonMobile}`)
@@ -49,6 +49,7 @@ const Layout = () => {
   return (
     <Box display={isNonMobile ? "flex" : "block"} maxWidth="100%" height="100%">
       <Sidebar
+        user={data || {}} 
         isNonMobile={isNonMobile}
         drawerWidth="250px"
         isSideBarOpen={isSideBarOpen}
@@ -58,6 +59,7 @@ const Layout = () => {
       <Box flexGrow={1}>
         {/* to have functionality of opening and closing sidebar in menu icon*/}
         <Navbar
+          user={data || {}} 
           isSideBarOpen={isSideBarOpen}
           setisSideBarOpen={setisSideBarOpen}
           sx={{ position: 'sticky', top: '0' }}

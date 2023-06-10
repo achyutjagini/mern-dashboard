@@ -22,13 +22,13 @@ import {
   TodayOutlined,
   CalendarMonthOutlined,
   PieChartOutlined,
-  EqualizerOutlined,
-  GroupsOutlined,
-  LaptopMacOutlined,
-  SickOutlined,
-  EngineeringOutlined,
-  AccountBalanceOutlined,
-  HailOutlined,
+  // EqualizerOutlined,
+  // GroupsOutlined,
+  // LaptopMacOutlined,
+  // SickOutlined,
+  // EngineeringOutlined,
+  // AccountBalanceOutlined,
+  // HailOutlined,
   ShoppingCartOutlined,
   Groups2Outlined,
   ReceiptLongOutlined,
@@ -141,8 +141,9 @@ const Sidebar = ({
           }}
         >
 
-          {/*top part container before the line underneath change backgroundColor and see*/}
-          <Box sx={{ position: 'sticky', top: '0', backgroundColor: 'theme.palette.background.alt', zIndex: '999', backgroundColor: "red" }}>
+          {/*top part container before the line underneath change backgroundColor and see */}
+          {/* // Dupicate bg color in this line */}
+          <Box sx={{ position: 'sticky', top: '0', backgroundColor: 'theme.palette.background.alt', zIndex: '999',  }}> 
 
             {/*the whole horizontal part remove the justify,m prop and see*/}
 
@@ -178,7 +179,7 @@ const Sidebar = ({
                 }
                 const lcText = text.toLowerCase();
 
-                {/* remove padding of listitem*/ }
+                //  remove padding of listitem   this was commented out improperly
                 return (
 
                   < ListItem key={text} disablePadding >
@@ -252,7 +253,7 @@ const Sidebar = ({
                   fontSize="0.8rem"
                   sx={{ color: theme.palette.secondary[200] }}
                 >
-                  {user.occupation}
+                  {/* {user.occupation} */}
                 </Typography>
               </Box>
               <SettingsOutlined
