@@ -1,0 +1,98 @@
+In your code, you are using the mongoose.connect() method to establish 
+a connection with MongoDB. When connecting to MongoDB using Mongoose, if 
+you don't specify a database name in the connection URL, Mongoose will
+use a default database named "test" for the connection.
+
+In your case, the connection URL is specified as process.env.MONGO_URL. 
+This URL should contain the MongoDB connection string, which includes 
+the necessary information to connect to the MongoDB server and specify the database.
+
+If you're using a .env file to store environment variables, make sur
+e you have set the MONGO_URL variable with the correct connection string 
+that includes the database name you want to use. For example:
+
+MONGO_URL=mongodb://localhost:27017/mydatabase
+Replace mydatabase with the desired name for your database.
+
+Once you have the correct MONGO_URL in your environment variables, 
+Mongoose will 
+establish a connection to the specified database, and you should be able to 
+see the database in MongoDB Compass or any other MongoDB client.
+
+
+
+
+In your code, the line Product.insertMany(dataProduct) is using Mongoose to insert
+multiple documents into the "products" collection in MongoDB. The collection
+name "products" is determined by Mongoose based on the pluralized 
+form of the model name.
+
+When defining the Product model using Mongoose, it internally creates
+ a schema and maps it to a collection in MongoDB. By convention, Mongoose
+ pluralizes the model name and uses that as the collection name
+ unless you explicitly specify a different collection name.
+
+For example, if you define the Product model like this:
+
+
+const productSchema = new mongoose.Schema({
+  // schema fields
+});
+
+const Product = mongoose.model('Product', productSchema);
+
+Mongoose will create a collection named "products" in the connected
+MongoDB database because it pluralizes the model name "Product".
+
+If you want to use a different collection name for the Product model, 
+you can specify it explicitly by providing the collection name 
+as the third argument to the mongoose.model() method:
+
+
+const Product = mongoose.model('Product', productSchema, 'customCollectionName');
+
+Replace 'customCollectionName' with the desired name
+for your collection.
+
+By default, if you don't specify a custom collection name, 
+Mongoose will create a collection with a name based on the 
+pluralized model name. In your case, it created a collection
+named "products" because you used the Product model 
+without explicitly specifying a custom collection name.
+
+
+const products = await Product.find() why Product.find()
+
+
+In the provided code snippet, Product.find() is a Mongoose method used to
+ retrieve data from the MongoDB database. It performs a query to find all 
+ documents in the "products" collection and returns a promise that 
+ resolves to an array of matching documents.
+
+
+The find() method in Mongoose allows you to retrieve documents from a collection 
+based on specified criteria. In this case, since no criteria are provided inside 
+the parentheses, Product.find() will return all documents present in
+ the "products" collection.
+
+Here's an example of how you can use Product.find() to retrieve all documents from the "products" collection:
+
+
+
+const products = await Product.find();
+After executing this code, the products variable will hold an
+array containing all the documents retrieved from the "products" collection.
+
+You can also specify criteria inside the find() method to filter the results
+ based on specific conditions. For example, if you want to find products
+  with a certain price range, you can provide a query object as an argument to find():
+
+
+
+const products = await Product.find({ price: { $gte: 10, $lte: 50 } });
+This query will retrieve all products with a price greater than 
+or equal to 10 and less than or equal to 50.
+
+By using the find() method, you can retrieve documents from the
+ database that match specific criteria or retrieve all documents
+ if no criteria are provided.

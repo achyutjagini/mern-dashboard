@@ -1,0 +1,15 @@
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+
+const func = async (req,res)=>{
+
+await setTimeout(()=>
+(console.log("abcd")),
+3000
+)
+    
+console.log('continue')
+    
+    
+}
+func()
