@@ -60,6 +60,7 @@ const Navbar = ({ user, isSideBarOpen, setisSideBarOpen }) => {
             </IconButton>
 
           </FlexBetween> {/*close the inner rounded flexbox*/}
+
         </FlexBetween>
 
         {/*right side*/}
@@ -128,6 +129,7 @@ const Navbar = ({ user, isSideBarOpen, setisSideBarOpen }) => {
 
 
           </FlexBetween>
+
         </FlexBetween>
       </Toolbar >
     </AppBar >

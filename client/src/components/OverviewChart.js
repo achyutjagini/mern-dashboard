@@ -10,10 +10,10 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     console.log(data)
 
     const [totalSalesLine, totalUnitsLine] = useMemo(() => {
-        if (!data || !data.monthlyData) return [];
+        if (!data) return [];
 
         //destructuring
-        const { monthlyData } = data
+        const { monthlyData } = data[0]
         console.log("monthlyData")
         console.log(monthlyData)
 

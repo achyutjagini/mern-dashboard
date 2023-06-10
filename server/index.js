@@ -58,4 +58,4 @@ mongoose
     //User.insertMany(dataUser);
     //OverallStat.insertMany(dataOverallStat)
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error))
