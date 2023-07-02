@@ -1,0 +1,18 @@
+
+User,Transaction,Product,ProductStat,AffliateStat,OverallStats
+
+
+transaction table
+need to get all transactions in entire database - issue if transaction only in user
+as need to loop through every user.
+
+
+User
+transactions-Array rep ids of transactions by user
+
+
+Transactions
+Link to products
+
+
+ProductStat separate from Product.Should show only product infor to frontend.

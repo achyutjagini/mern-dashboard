@@ -1,0 +1,39 @@
+const store = configureStore({
+  reducer: {
+    global: globalReducer,
+    [api.reducerPath]: api.reducer,
+
+  },
+  middleware: (getDefault) => getDefault().concat(api.middleware),
+});
+
+setupListeners(store.dispatch);
+
+
+The reducer property is an object that specifies the reducers
+used by the store. In this case, there are two reducers:
+
+global: This is the globalReducer which handles the state for 
+the "global" part of your application.
+
+[api.reducerPath]: This is the reducer provided by the reduxjs/toolkit library
+for handling API requests and responses. It uses the api.reducerPath as 
+the key for this reducer.
+
+The middleware property is a function that allows you to customize the 
+middleware applied to the store. It receives a getDefault function as an 
+argument, which returns the default middleware provided by reduxjs/toolkit.
+
+In this code, the getDefault middleware is retrieved and concatenated with 
+api.middleware. The api.middleware is the middleware provided by 
+the reduxjs/toolkit
+library for handling API requests and responses.
+
+The setupListeners function is called with store.dispatch as an argument.
+ This function is provided by the reduxjs/toolkit library and sets up
+  listeners for the api.middleware to handle lifecycle events such as
+   starting, success, and error states for API requests.
+
+Overall, this code configures a Redux store with two reducers
+ (global and api.reducer), applies middleware including the api.middleware,
+  and sets up listeners for API request lifecycle events.

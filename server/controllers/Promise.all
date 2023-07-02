@@ -1,0 +1,28 @@
+
+Promise.all is a method in JavaScript that takes an array of promises and returns a new promise. 
+This method is typically used when you want to execute multiple asynchronous operations
+ concurrently and wait for all of them to complete.
+
+Here's how Promise.all works:
+
+It takes an array of promises as an argument.
+It returns a new promise that fulfills when all the promises in the input array have been fulfilled, 
+or rejects if any of the promises in the input array reject.
+
+The fulfilled value of the returned promise is an array of the resolved values of the input
+promises, in the same order as the input array.
+
+In the context of the code you provided, Promise.all is used to handle multiple asynchronous
+operations inside the map function. Each iteration of the map function creates a promise
+by calling ProductStat.find() to retrieve statistics for a particular product.
+
+By using Promise.all with await, the code waits for all those promises to resolve 
+before proceeding to the next step. This ensures that all the statistics for 
+each product are retrieved before sending the response.
+
+Once all the promises are resolved, the Promise.all call returns a new promise
+ that is assigned to the variable productsWithStats. This promise resolves to 
+ an array of objects, where each object represents a product
+  with its associated statistics.
+
+In summary, Promise.all is used to wait for multiple promises to resolve concurrently, and it provides a way to handle multiple asynchronous operations efficiently and obtain their combined results.

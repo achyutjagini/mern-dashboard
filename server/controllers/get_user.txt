@@ -1,0 +1,30 @@
+The getCustomers function is declared as an asynchronous function, 
+indicating that it may perform asynchronous operations.
+
+Within the function body, there is a try-catch block, which is
+used to handle any errors that may occur during
+the execution of the code.
+
+Inside the try block:
+
+The User.find({ role: "user" }) function is called, presumably 
+to retrieve a list of customers from a database. It uses the 
+find method provided by the User model or database schema.
+The { role: "user" } object is used as a query to filter
+the users with the role "user".
+
+The select("-password") method is used to exclude the "password" field 
+from the retrieved user objects. This is commonly done for security reasons,
+ as passwords should not be exposed in the response.
+
+The result of the query is stored in the customers variable. 
+It seems to be an array of user objects.
+After retrieving the customers, the code sends an HTTP response 
+with a status code of 200 (indicating a successful request) and 
+JSON data representing the customers array. The res.status(200).json(customers) 
+statement is responsible for sending the response.
+
+If an error occurs during the execution of the try block, the catch 
+block is executed. It sends an HTTP response with a status code of
+404 (indicating a "Not Found" error) and a
+JSON object containing an error message.
