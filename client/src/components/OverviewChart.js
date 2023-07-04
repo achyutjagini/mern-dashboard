@@ -3,10 +3,12 @@ import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { useGetSalesQuery } from "state/api";
 
+//view passed as prop to overview chart
+
 const OverviewChart = ({ isDashboard = false, view }) => {
     const theme = useTheme();
     const { data, isLoading } = useGetSalesQuery();
-    console.log("data")
+    console.log("use get sales query data")
     console.log(data)
 
     const [totalSalesLine, totalUnitsLine] = useMemo(() => {
@@ -32,12 +34,14 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         Object.values(monthlyData).reduce(
             (acc, { month, totalSales, totalUnits }) => {
                 const curSales = acc.sales + totalSales;
+
                 const curUnits = acc.units + totalUnits;
 
                 totalSalesLine.data = [
                     ...totalSalesLine.data,
                     { x: month, y: curSales },
                 ];
+
                 totalUnitsLine.data = [
                     ...totalUnitsLine.data,
                     { x: month, y: curUnits },
@@ -45,11 +49,14 @@ const OverviewChart = ({ isDashboard = false, view }) => {
 
                 return { sales: curSales, units: curUnits };
             },
+
             { sales: 0, units: 0 }
         );
 
         return [[totalSalesLine], [totalUnitsLine]];
+
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
+
 
     if (!data || isLoading) return "Loading...";
 
@@ -104,6 +111,8 @@ const OverviewChart = ({ isDashboard = false, view }) => {
             axisTop={null}
             axisRight={null}
             axisBottom={{
+                //on dashboard cut from january to jan
+                //dashboard doesn't have that much space
                 format: (v) => {
                     if (isDashboard) return v.slice(0, 3);
                     return v;
@@ -137,6 +146,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
             pointLabelYOffset={-12}
             useMesh={true}
             legends={
+                //if not dashboard we have else undefined
                 !isDashboard
                     ? [
                         {

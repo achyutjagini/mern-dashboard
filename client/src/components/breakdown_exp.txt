@@ -1,0 +1,50 @@
+
+The provided code is a React component called BreakdownChart. It
+renders a pie chart 
+
+using the ResponsivePie component from the @nivo/pie library. The chart displays
+the breakdown of sales data by category.
+
+Here's an overview of the component's implementation:
+The component imports necessary dependencies from React, Material-UI 
+(Box, Typography, useTheme),
+and the API hook (useGetSalesQuery) for fetching sales data.
+
+The BreakdownChart component takes an optional prop isDashboard, which determines
+ the size and positioning of the chart. By default, isDashboard is set to false.
+
+The useGetSalesQuery hook is used to fetch the sales data, and the result is 
+destructured into data and isLoading variables. If the data is not available 
+or still loading, the component returns the string "Loading..." as the content.
+
+An array of colors is defined based on the theme palette from useTheme.
+
+The formattedData variable is created by iterating over the salesByCategory
+object in the data and mapping it to an array of objects with the required
+structure for the pie chart. Each object represents a category and 
+contains properties like id (category name), label (category name),
+value (sales value), and color (assigned from the color array).
+
+Inside the JSX, a Box component is used as the container for the
+chart. The size and positioning of the Box are determined based on the 
+isDashboard prop.
+
+The ResponsivePie component is rendered inside the Box and receives
+several props. It uses the formattedData as the data prop and 
+defines a theme for styling.
+
+Additional props are provided to customize the appearance of 
+the pie chart, such as margin, innerRadius, borderWidth, borderColor, and more.
+
+The legends prop configures the legend for the chart. It is positioned at the 
+bottom and styled accordingly. Hover effects are also defined to highlight 
+the legend item on hover.
+
+Finally, a Box component is positioned absolutely to display the total sales 
+amount. Its content is based on the isDashboard prop and the yearlySalesTotal 
+value from the data.
+
+In summary, the BreakdownChart component fetches sales data, formats it, 
+and renders a responsive pie chart using the ResponsivePie component. The chart 
+displays the breakdown of sales by category, with additional information 
+such as legends and the total sales amount.

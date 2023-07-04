@@ -4,7 +4,7 @@ import Header from "components/Header";
 import OverviewChart from "components/OverviewChart";
 
 const Overview = () => {
-    const [view, setView] = useState("units");
+    const [view, setView] = useState("sales");
 
     return (
         <Box m="1.5rem 2.5rem">

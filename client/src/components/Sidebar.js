@@ -163,6 +163,7 @@ const Sidebar = ({
                     <ChevronLeft sx={{ color: theme.palette.secondary.main }} />
                   </IconButton>
                 )}
+
               </FlexBetween>
             </Box>
 
