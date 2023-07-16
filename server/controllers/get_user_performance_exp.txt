@@ -18,7 +18,9 @@ Inside the function, it first extracts the id from the request parameters, which
  presumably represents the user's unique identifier.
 
 The function then uses the Mongoose aggregate method to perform an aggregation operation
- on the User collection. It starts with a $match stage to find the user with the 
+ on the User collection. 
+ 
+ It starts with a $match stage to find the user with the 
  specified _id. The _id is converted to a MongoDB ObjectId using mongoose.Types.ObjectId.
 
 Next, it uses the $lookup stage to perform a left outer join with the "affiliatestats"
