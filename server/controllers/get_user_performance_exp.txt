@@ -1,12 +1,13 @@
 
-
 This code is an example of a server-side function written in Node.js using
 the Express framework 
 and MongoDB with Mongoose for database operations. It exports a function 
 called getUserPerformance, 
-which handles a request to get a user's performance statistics along with associated
-sale transactions. Let me break down the code step by step:
 
+which handles a request to get a user's performance statistics along with associated
+sale transactions.
+
+Let me break down the code step by step:
 The function is an asynchronous function, indicated by the async keyword, meaning
 it can use await for asynchronous operations.
 
