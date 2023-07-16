@@ -1,0 +1,53 @@
+
+
+This code is an example of a server-side function written in Node.js using
+the Express framework 
+and MongoDB with Mongoose for database operations. It exports a function 
+called getUserPerformance, 
+which handles a request to get a user's performance statistics along with associated
+sale transactions. Let me break down the code step by step:
+
+The function is an asynchronous function, indicated by the async keyword, meaning
+it can use await for asynchronous operations.
+
+It takes in two parameters: req (request) and res (response), which are provided by the
+ Express framework when the function is invoked as a request handler.
+
+Inside the function, it first extracts the id from the request parameters, which
+ presumably represents the user's unique identifier.
+
+The function then uses the Mongoose aggregate method to perform an aggregation operation
+ on the User collection. It starts with a $match stage to find the user with the 
+ specified _id. The _id is converted to a MongoDB ObjectId using mongoose.Types.ObjectId.
+
+Next, it uses the $lookup stage to perform a left outer join with the "affiliatestats"
+ collection. This is done to retrieve the affiliate statistics for the specified user.
+
+The $unwind stage is used to flatten the affiliateStats array, which was created as a result 
+of the $lookup operation. At this point, the userWithStats variable should contain the
+ user object with their corresponding affiliate statistics.
+
+The code then proceeds to fetch the sale transactions associated with the user's 
+affiliate stats. It does this by mapping over the affiliateSales array and using 
+Transaction.findById(id) to fetch each transaction.
+
+The await Promise.all(...) syntax is used to await all the promises returned 
+by Transaction.findById(id) calls. This is because Transaction.findById returns
+ a promise for each transaction, and we want to wait for all the promises 
+ to resolve before proceeding.
+
+After fetching the sale transactions, the code filters out any null values
+ from the saleTransactions array using filteredSaleTransactions.
+
+Finally, the server responds with a JSON object containing the user object
+with stats (userWithStats[0]) and the filtered sale transactions.
+
+In case of any errors during the process, it catches them in the catch
+block and responds with a JSON object containing an error message 
+and an HTTP status code of 404.
+
+Please note that this code assumes that the necessary models (User, Transaction) 
+and database connections have been properly set up elsewhere in the application. 
+Also, it is essential to handle error cases more gracefully in a production
+environment, providing more informative error messages and proper HTTP
+status codes based on the type of error encountered

@@ -37,7 +37,9 @@ const Daily = () => {
 
             //ensure only dates between startDate and endDate are taken            
             if (dateFormatted >= startDate && dateFormatted <= endDate) {
-                //for 2021-01-02 getting part of date after "-" - 01-02
+                
+                //ex for 2021-01-02 getting part of date after "-" - 01-02
+
                 const splitDate = date.substring(date.indexOf("-") + 1);
 
                 totalSalesLine.data = [
@@ -55,6 +57,7 @@ const Daily = () => {
 
         const formattedData = [totalSalesLine, totalUnitsLine];
         return [formattedData];
+
     }, [data, startDate, endDate]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (

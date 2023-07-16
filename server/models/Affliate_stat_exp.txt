@@ -1,0 +1,29 @@
+
+
+const AffiliateStatSchema = new mongoose.Schema({ ... });: This section defines the Mongoose 
+schema for the "AffiliateStat" collection. The schema specifies the structure of the 
+documents in the collection. It consists of two fields:
+
+userId: This field represents the user associated with the affiliate stats. It is 
+of type mongoose.Types.ObjectId and references the "User" collection. It means that
+the "userId" field in each "AffiliateStat" document will store an ObjectId that
+corresponds to a document in the "User" collection.
+
+
+affiliateSales: This field represents the affiliate sales associated with the user.
+It is an array of mongoose.Types.ObjectId and references the "Transaction" collection.
+It means that the "affiliateSales" field in each "AffiliateStat" document will store
+an array of ObjectIds, where each ObjectId corresponds to a document
+in the "Transaction" collection.
+
+
+{ timestamps: true }: This option in the schema adds two additional fields 
+to each document: "createdAt" and "updatedAt". These fields will automatically 
+be managed by Mongoose and represent the creation and last update times of each document.
+
+
+const AffiliateStat = mongoose.model("AffiliateStat", AffiliateStatSchema);:
+This line creates the Mongoose model for the "AffiliateStat" collection. The 
+model is used to interact with the collection in the database. It takes
+two arguments: the name of the model ("AffiliateStat") and the schema
+(AffiliateStatSchema) that defines the structure of the documents.
